@@ -1,5 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
 
 public class Main {
 
@@ -11,7 +15,11 @@ public class Main {
         return  result;
     }
 
+    public static List<String> number2(List<String> lines) {
+        AtomicInteger i = new AtomicInteger(1);
+        return lines.stream().map(e -> i.getAndIncrement() + ": " + e).collect(Collectors.toList());
+
+    }
 
 
-    
 }
